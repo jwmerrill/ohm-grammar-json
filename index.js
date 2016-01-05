@@ -8,20 +8,29 @@ var semantics = grammar.semantics();
 function pair(k, v) { return { k: k, v: v }; }
 
 semantics.addOperation('parse', {
-  Object: function (_, e, _) {
-    var pairs = e.buildArray();
+  Object_empty: function (_, _) { return {}; },
+  Object_nonEmpty: function (_, x, _, xs, _) {
     var out = {};
-    for (var i = 0; i < pairs.length; i++) {
-      var pair = pairs[i];
-      out[pair.k] = pair.v;
+    var k = x.children[0].parse();
+    var v = x.children[2].parse();
+    out[k] = v;
+    for (var i = 0; i < xs.children.length; i++) {
+      var c = xs.children[i];
+      var k = c.children[0].parse();
+      var v = c.children[2].parse();
+      out[k] = v;
     }
     return out;
   },
-  Pair: function (k, _, v) {
-    return pair(k.parse(), v.parse());
+  Array_empty: function (_, _) {
+    return [];
   },
-  Array: function (_, e, _) {
-    return e.buildArray();
+  Array_nonEmpty: function (_, x, _, xs, _) {
+    var out = [x.parse()];
+    for (var i = 0; i < xs.children.length; i++) {
+      out.push(xs.children[i].parse());
+    }
+    return out;
   },
   String: function (_, e, _) {
     return e.children.map(function (c) { return c.parse(); }).join("");
@@ -53,13 +62,6 @@ semantics.addOperation('parse', {
   True: function (e) { return true; },
   False: function (e) { return false; },
   Null: function (e) { return null; }
-});
-
-semantics.addOperation('buildArray', {
-  ListOf_none: function () { return []; },
-  ListOf_some: function (x, _, xs) {
-    return [x.parse()].concat(xs.parse());
-  }
 });
 
 module.exports = {

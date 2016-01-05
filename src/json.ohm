@@ -6,6 +6,7 @@ JSON {
   ArrayOpen = "["
   ArrayClose = "]"
   PairSeparator = ":"
+  RecordSeparator = ","
 
   Value =
     Object
@@ -17,13 +18,15 @@ JSON {
     | Null
 
   Object =
-    ObjectOpen ListOf<Pair, ","> ObjectClose
+    ObjectOpen ObjectClose -- empty
+    | ObjectOpen Pair (RecordSeparator Pair)* ObjectClose -- nonEmpty
 
   Pair =
     String PairSeparator Value
 
   Array =
-    ArrayOpen ListOf<Value, ","> ArrayClose
+    ArrayOpen ArrayClose -- empty
+    | ArrayOpen Value (RecordSeparator Value)* ArrayClose -- nonEmpty
 
   String =
     "\"" doubleStringCharacter* "\""
