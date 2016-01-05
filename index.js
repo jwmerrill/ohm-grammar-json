@@ -31,6 +31,8 @@ semantics.addOperation('parse', {
     return out;
   },
   String: function (_, e, _) {
+    // TODO would it be more efficient to try to capture runs of unescaped
+    // characters directly?
     return e.children.map(function (c) { return c.parse(); }).join("");
   },
   doubleStringCharacter_nonEscaped: function (e) {
