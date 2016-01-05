@@ -1,0 +1,14 @@
+{
+  "name": "ohm-json",
+  "version": "1.0.0",
+  "description": "JSON parser in ohm",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jason Merrill",
+  "license": "ISC",
+  "dependencies": {
+    "ohm-js": "^0.9.0"
+  }
+}
