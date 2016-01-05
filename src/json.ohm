@@ -1,5 +1,5 @@
 JSON {
-  Exp = Value
+  Start = Value
 
   ObjectOpen = "{"
   ObjectClose = "}"
