@@ -5,8 +5,6 @@ var grammar = ohm.grammar(fs.readFileSync('src/json.ohm'));
 
 var semantics = grammar.semantics();
 
-function pair(k, v) { return { k: k, v: v }; }
-
 semantics.addOperation('parse', {
   Object_empty: function (_, _) { return {}; },
   Object_nonEmpty: function (_, x, _, xs, _) {
