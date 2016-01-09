@@ -21,13 +21,13 @@ JSON {
     "[" "]" -- empty
     | "[" Value ("," Value)* "]" -- nonEmpty
 
-  String =
+  String (String) =
     stringLiteral
 
   stringLiteral =
     "\"" doubleStringCharacter* "\""
 
-  doubleStringCharacter =
+  doubleStringCharacter (character) =
     ~("\"" | "\\") any -- nonEscaped
     | "\\" escapeSequence -- escaped
 
@@ -42,7 +42,7 @@ JSON {
     | "t" -- horizontalTab
     | "u" hexDigit hexDigit hexDigit hexDigit -- codePoint
 
-  Number =
+  Number (Number) =
     numberLiteral
 
   numberLiteral =
