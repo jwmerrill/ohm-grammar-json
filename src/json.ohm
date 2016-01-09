@@ -1,13 +1,6 @@
 JSON {
   Start = Value
 
-  ObjectOpen = "{"
-  ObjectClose = "}"
-  ArrayOpen = "["
-  ArrayClose = "]"
-  PairSeparator = ":"
-  RecordSeparator = ","
-
   Value =
     Object
     | Array
@@ -18,15 +11,15 @@ JSON {
     | Null
 
   Object =
-    ObjectOpen ObjectClose -- empty
-    | ObjectOpen Pair (RecordSeparator Pair)* ObjectClose -- nonEmpty
+    "{" "}" -- empty
+    | "{" Pair ("," Pair)* "}" -- nonEmpty
 
   Pair =
-    String PairSeparator Value
+    String ":" Value
 
   Array =
-    ArrayOpen ArrayClose -- empty
-    | ArrayOpen Value (RecordSeparator Value)* ArrayClose -- nonEmpty
+    "[" "]" -- empty
+    | "[" Value ("," Value)* "]" -- nonEmpty
 
   String =
     stringLiteral
