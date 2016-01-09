@@ -10,5 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "ohm-js": "^0.9.0"
+  },
+  "devDependencies": {
+    "deep-equal": "^1.0.1"
   }
 }

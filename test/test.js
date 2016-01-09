@@ -1,6 +1,7 @@
 var fs = require('fs');
 var path = require('path');
 var json = require('../index');
+var deepEqual = require('deep-equal');
 
 jsonCheckerPath = path.resolve(
   __dirname, 'nativejson-benchmark', 'data', 'jsonchecker'
@@ -26,9 +27,19 @@ files.forEach(function (name) {
 
   var match = json.grammar.match(contents);
 
-  if (name.match(/pass/) && !match.succeeded()) {
-    console.log(match.message);
-    succeeded = false;
+  if (name.match(/pass/)) {
+    if (!match.succeeded()) {
+      console.log(match.message);
+      succeeded = false;
+    }
+
+    if (!deepEqual(json.parse(contents), JSON.parse(contents))) {
+      console.log(
+        'Parse results did not match native implementation.',
+        contents
+      );
+      succeeded = false;
+    }
   }
 
   if (name.match(/fail/) && match.succeeded()) {
