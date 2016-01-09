@@ -9,7 +9,7 @@ JSON parser written using the [Ohm](https://github.com/cdglabs/ohm) parsing fram
 var json = require('ohm-json');
 ```
 
-Analogous to the built in JSON.parse
+Analogous to Javascript's built in `JSON.parse`
 ```javascript
 json.parse('{"a": "b"}');
 ```
