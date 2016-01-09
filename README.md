@@ -3,6 +3,12 @@ Ohm-JSON
 
 JSON parser written using the [Ohm](https://github.com/cdglabs/ohm) parsing framework.
 
+## Installation
+
+```bash
+npm install ohm-json
+```
+
 ## Usage
 
 ```javascript
