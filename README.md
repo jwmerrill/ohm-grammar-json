@@ -15,18 +15,18 @@ npm install ohm-json
 var json = require('ohm-json');
 ```
 
-Analogous to Javascript's built in `JSON.parse`
+Analogous to Javascript's built in `JSON.parse`:
 ```javascript
 json.parse('{"a": "b"}')
 ```
 
-The Ohm [grammar](https://github.com/cdglabs/ohm/blob/master/doc/api-reference.md#instantiating-grammars) and [semantics](https://github.com/cdglabs/ohm/blob/master/doc/api-reference.md#semantics) objects are available
+The Ohm [grammar](https://github.com/cdglabs/ohm/blob/master/doc/api-reference.md#instantiating-grammars) and [semantics](https://github.com/cdglabs/ohm/blob/master/doc/api-reference.md#semantics) objects are available:
 ```javascript
 json.grammar
 json.semantics
 ```
 
-Match json and return an Ohm [match stucture](https://github.com/cdglabs/ohm/blob/master/doc/api-reference.md#matchresult-objects)
+Match json and return an Ohm [match stucture](https://github.com/cdglabs/ohm/blob/master/doc/api-reference.md#matchresult-objects):
 ```javascript
 json.grammar.match('{"a": "b"}') // Returns a grammar object
 json.grammar.match('{"a": "b"}').succeeded() // true
