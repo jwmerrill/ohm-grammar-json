@@ -64,7 +64,14 @@ semantics.addOperation('parse', {
   Null: function (e) { return null; }
 });
 
+function parse(str) {
+  var match = grammar.match(str);
+  if (match.failed()) throw new Error(match.message);
+  return semantics(match).parse();
+}
+
 module.exports = {
   grammar: grammar,
-  semantics: semantics
+  semantics: semantics,
+  parse: parse
 }
