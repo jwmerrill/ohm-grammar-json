@@ -40,7 +40,9 @@ JSON {
     | "n" -- newline
     | "r" -- carriageReturn
     | "t" -- horizontalTab
-    | "u" hexDigit hexDigit hexDigit hexDigit -- codePoint
+    | "u" fourHexDigits -- codePoint
+
+  fourHexDigits = hexDigit hexDigit hexDigit hexDigit
 
   Number (Number) =
     numberLiteral

@@ -52,14 +52,8 @@ semantics.addOperation('parse', {
   escapeSequence_newline: function (e) { return '\n'; },
   escapeSequence_carriageReturn: function (e) { return '\r'; },
   escapeSequence_horizontalTab: function (e) { return '\t'; },
-  escapeSequence_codePoint: function (_, d1, d2, d3, d4) {
-    var digits = (
-      d1.interval.contents +
-      d2.interval.contents +
-      d3.interval.contents +
-      d4.interval.contents
-    );
-    return String.fromCharCode(parseInt(digits, 16));
+  escapeSequence_codePoint: function (_, e) {
+    return String.fromCharCode(parseInt(e.interval.contents, 16));
   },
   Number: function (e) { return parseFloat(e.interval.contents); },
   True: function (e) { return true; },
