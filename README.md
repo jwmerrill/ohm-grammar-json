@@ -7,15 +7,35 @@ JSON parser written using the [Ohm](https://github.com/cdglabs/ohm) parsing fram
 
 ```javascript
 var json = require('ohm-json');
+```
 
-# Analogous to the built in JSON.parse
+Analogous to the built in JSON.parse
+```javascript
 json.parse('{"a": "b"}');
+```
 
-# Match json and return an Ohm match stucture
-json.grammar.match('{"a": "b"}');
-
-# Ohm semantics object that contains the parser implementation
+The Ohm [grammar](https://github.com/cdglabs/ohm/blob/master/doc/api-reference.md#instantiating-grammars) and [semantics](https://github.com/cdglabs/ohm/blob/master/doc/api-reference.md#semantics) objects are available
+```javascript
+json.grammar
 json.semantics
+```
+
+Match json and return an Ohm [match stucture](https://github.com/cdglabs/ohm/blob/master/doc/api-reference.md#matchresult-objects)
+```javascript
+json.grammar.match('{"a": "b"}');
+```
+
+## Testing
+
+```bash
+# Pull in submodules (nativejson-benchmark)
+git submodule init --update
+
+# Install dev dependencies
+npm install --dev
+
+# Run tests
+npm test
 ```
 
 ## Status
