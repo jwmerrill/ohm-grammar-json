@@ -40,4 +40,4 @@ npm test
 
 ## Status
 
-This is a personal experiment that I used to learn about Ohm. Not really inteded to be used for any purpose other than learning.
+This is a personal experiment that I used to learn about Ohm. Not really inteded to be used for any purpose other than learning. This project is intended to conform to [ECMA 404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf) and as far as I know, it does.
