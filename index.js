@@ -1,7 +1,10 @@
 var fs = require('fs');
+var path = require('path');
 var ohm = require('ohm-js');
 
-var grammar = ohm.grammar(fs.readFileSync('src/json.ohm'));
+var grammarPath = path.resolve(__dirname, 'src', 'json.ohm');
+var grammarSrc = fs.readFileSync(grammarPath, {encoding: 'utf-8'});
+var grammar = ohm.grammar(grammarSrc);
 
 var semantics = grammar.semantics();
 
