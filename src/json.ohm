@@ -29,6 +29,9 @@ JSON {
     | ArrayOpen Value (RecordSeparator Value)* ArrayClose -- nonEmpty
 
   String =
+    stringLiteral
+
+  stringLiteral =
     "\"" doubleStringCharacter* "\""
 
   doubleStringCharacter =
