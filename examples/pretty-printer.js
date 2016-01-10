@@ -1,9 +1,10 @@
-var json = require('../index');
+var grammar = require('../src/json-grammar');
 
-// Make a new semantics instead of mutating the existing one. Is this
-// the right thing to do? Pretty printer depends on existing grammar,
-// but not parser semantics.
-var semantics = json.grammar.semantics();
+// Make a new semantics instead of adding to the semantics that has
+// the `parse` operation defined on it. Is this the right thing to do?
+// Pretty printer depends on the existing grammar, but not parser
+// semantics.
+var semantics = grammar.semantics();
 
 // The printyPrint semantic operation is designed to take a generic
 // context that implements this interface, so you could write your
@@ -93,7 +94,7 @@ semantics.addOperation('prettyPrint(ctx)', {
 // Takes a string of valid json, and returns a pretty printed string
 // representing the same json value.
 function prettyPrint(str) {
-  var match = json.grammar.match(str);
+  var match = grammar.match(str);
   if (match.failed()) throw new Error(match.message);
   var ctx = new PrettyPrintCtx();
   semantics(match).prettyPrint(ctx);

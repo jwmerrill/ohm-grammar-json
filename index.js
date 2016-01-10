@@ -1,11 +1,4 @@
-var fs = require('fs');
-var path = require('path');
-var ohm = require('ohm-js');
-
-var grammarPath = path.resolve(__dirname, 'src', 'json.ohm');
-var grammarSrc = fs.readFileSync(grammarPath, {encoding: 'utf-8'});
-var grammar = ohm.grammar(grammarSrc);
-
+var grammar = require('./src/json-grammar');
 var semantics = grammar.semantics();
 
 semantics.addOperation('parse', {
