@@ -17,12 +17,18 @@ function PrettyPrintCtx(depth, buffer) {
   this.buffer = buffer || [];
 }
 
-// Add a string to the buffer
+// Write a string
 PrettyPrintCtx.prototype.push = function (str) {
   this.buffer.push(str);
 }
 
-// Add (optional) string to the buffer, followed by a newline, followed
+// Write contents of an interval.
+PrettyPrintCtx.prototype.pushInterval = function (interval) {
+  // Might be able to do something more efficient here, in principle.
+  this.buffer.push(interval.contents);
+}
+
+// Write (optional) string, followed by a newline, followed
 // by an appropriate amount of whitespace for the current depth.
 PrettyPrintCtx.prototype.pushln = function (str) {
   if (str) this.push(str);
@@ -77,11 +83,11 @@ semantics.addOperation('prettyPrint(ctx)', {
     this.args.ctx.push(']');
   },
   // TODO should a pretty printer handle unescaping?
-  String: function (e) { this.args.ctx.push(e.interval.contents); },
-  Number: function (e) { this.args.ctx.push(e.interval.contents); },
-  True: function (e) { this.args.ctx.push('true'); },
-  False: function (e) { this.args.ctx.push('false'); },
-  Null: function (e) { this.args.ctx.push('null'); }
+  String: function (e) { this.args.ctx.pushInterval(e.interval); },
+  Number: function (e) { this.args.ctx.pushInterval(e.interval); },
+  True: function (e) { this.args.ctx.pushInterval(e.interval); },
+  False: function (e) { this.args.ctx.pushInterval(e.interval); },
+  Null: function (e) { this.args.ctx.pushInterval(e.interval); }
 });
 
 // Takes a string of valid json, and returns a pretty printed string
