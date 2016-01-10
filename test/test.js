@@ -16,7 +16,7 @@ var EXCLUDED_TESTS = [
   'fail18_EXCLUDE.json', // Tests deep nesting of arrays
   'fail25.json', // Tests tabs in strings.
   'fail27.json' // Tests line breaks in strings.
-]
+];
 
 var succeeded = true;
 files.forEach(function (name) {
@@ -47,7 +47,7 @@ files.forEach(function (name) {
       console.log(
         'Parsing pretty-printed results did not match original parse.',
         contents
-      )
+      );
       succeeded = false;
     }
   }
@@ -58,4 +58,4 @@ files.forEach(function (name) {
   }
 });
 
-process.exit(succeeded ? 0 : 1)
+process.exit(succeeded ? 0 : 1);

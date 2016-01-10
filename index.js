@@ -17,8 +17,8 @@ semantics.addOperation('parse', {
     out[k] = v;
     for (var i = 0; i < xs.children.length; i++) {
       var c = xs.children[i];
-      var k = c.children[0].parse();
-      var v = c.children[2].parse();
+      k = c.children[0].parse();
+      v = c.children[2].parse();
       out[k] = v;
     }
     return out;
