@@ -20,13 +20,13 @@ function PrettyPrintCtx(depth, buffer) {
 // Write a string
 PrettyPrintCtx.prototype.push = function (str) {
   this.buffer.push(str);
-}
+};
 
 // Write contents of an interval.
 PrettyPrintCtx.prototype.pushInterval = function (interval) {
   // Might be able to do something more efficient here, in principle.
   this.buffer.push(interval.contents);
-}
+};
 
 // Write (optional) string, followed by a newline, followed
 // by an appropriate amount of whitespace for the current depth.
@@ -34,17 +34,17 @@ PrettyPrintCtx.prototype.pushln = function (str) {
   if (str) this.push(str);
   this.push('\n');
   for (var i = 0; i < this.depth; i++) this.push('  ');
-}
+};
 
 // Return a new context with depth incremented by 1, but the same buffer.
 PrettyPrintCtx.prototype.inc = function () {
   return new this.constructor(this.depth + 1, this.buffer);
-}
+};
 
 // Copy contents of buffer to a new string
 PrettyPrintCtx.prototype.toString = function () {
   return this.buffer.join('');
-}
+};
 
 semantics.addOperation('prettyPrint(ctx)', {
   Object_empty: function (_, _) {
@@ -103,4 +103,4 @@ function prettyPrint(str) {
 module.exports = {
   semantics: semantics,
   prettyPrint: prettyPrint
-}
+};

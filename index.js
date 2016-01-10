@@ -71,4 +71,4 @@ module.exports = {
   grammar: grammar,
   semantics: semantics,
   parse: parse
-}
+};
