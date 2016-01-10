@@ -47,6 +47,41 @@ npm install --dev
 npm test
 ```
 
+## Pretty Printer example
+
+There is an example JSON pretty printer implemented in `examples/pretty-printer.js`. The purpose of this example is to demonstrate
+
+  1. Creating a new semantic operation on top of an existing grammar.
+  2. Writing a semantic operation that depends on a context.
+
+Example usage:
+
+```javascript
+var PrettyPrinter = require('ohm-json/examples/pretty-printer');
+
+var str = PrettyPrinter.prettyPrint('{"a":"b","c":[1,2,[true,false,null],6.7]}');
+
+console.log(str);
+```
+
+Output:
+
+```json
+{
+  "a": "b",
+  "c": [
+    1,
+    2,
+    [
+      true,
+      false,
+      null
+    ],
+    6.7
+  ]
+}
+```
+
 ## Status
 
 This is a personal experiment that I used to learn about Ohm. Not really inteded to be used for any purpose other than learning. This project is intended to conform to [ECMA 404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf) and as far as I know, it does.
