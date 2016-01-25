@@ -10,4 +10,4 @@ node_js:
   - "iojs"
 before-script:
   - "nmp install --dev"
-  - "git submodule init --update"
+  - "git submodule update --init"
