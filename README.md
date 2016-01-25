@@ -84,4 +84,6 @@ Output:
 
 ## Status
 
-This is a personal experiment that I used to learn about Ohm. Not really inteded to be used for any purpose other than learning. This project is intended to conform to [ECMA 404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf) and as far as I know, it does.
+This package is intended as a demonstration of the Ohm parsing framework. If you want to parse or pretty print JSON in javascript, I recommend using the built in `JSON.parse` and `JSON.stringify` functions.
+
+This project is intended to conform to [ECMA 404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf) and as far as I know, it does.
