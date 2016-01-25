@@ -1,5 +1,6 @@
 ohm-grammar-json
 ================
+[![Build Status](https://travis-ci.org/jwmerrill/ohm-grammar-json.svg?branch=master)](https://travis-ci.org/jwmerrill/ohm-grammar-json)
 
 JSON parser written using the [Ohm](https://github.com/cdglabs/ohm) parsing framework.
 
