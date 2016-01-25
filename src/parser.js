@@ -63,4 +63,4 @@ function parse(str) {
 module.exports = {
   parse: parse,
   semantics: semantics
-}
+};
