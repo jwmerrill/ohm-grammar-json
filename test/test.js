@@ -1,3 +1,5 @@
+"use strict";
+
 var fs = require('fs');
 var path = require('path');
 var deepEqual = require('deep-equal');
@@ -5,7 +7,7 @@ var deepEqual = require('deep-equal');
 var json = require('../index');
 var prettyPrint = require('../examples/pretty-printer').prettyPrint;
 
-jsonCheckerPath = path.resolve(
+var jsonCheckerPath = path.resolve(
   __dirname, 'nativejson-benchmark', 'data', 'jsonchecker'
 );
 var files = fs.readdirSync(jsonCheckerPath);

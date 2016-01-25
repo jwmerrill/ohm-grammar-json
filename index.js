@@ -1,3 +1,5 @@
+"use strict";
+
 var grammar = require('./src/json-grammar');
 var parser = require('./src/parser');
 

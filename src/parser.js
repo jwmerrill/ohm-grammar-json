@@ -1,9 +1,11 @@
+"use strict";
+
 var grammar = require('./json-grammar');
 var semantics = grammar.semantics();
 
 semantics.addOperation('parse', {
-  Object_empty: function (_, _) { return {}; },
-  Object_nonEmpty: function (_, x, _, xs, _) {
+  Object_empty: function (_1, _2) { return {}; },
+  Object_nonEmpty: function (_1, x, _3, xs, _5) {
     var out = {};
     var k = x.children[0].parse();
     var v = x.children[2].parse();
@@ -16,17 +18,17 @@ semantics.addOperation('parse', {
     }
     return out;
   },
-  Array_empty: function (_, _) {
+  Array_empty: function (_1, _2) {
     return [];
   },
-  Array_nonEmpty: function (_, x, _, xs, _) {
+  Array_nonEmpty: function (_1, x, _3, xs, _5) {
     var out = [x.parse()];
     for (var i = 0; i < xs.children.length; i++) {
       out.push(xs.children[i].parse());
     }
     return out;
   },
-  stringLiteral: function (_, e, _) {
+  stringLiteral: function (_1, e, _3) {
     // TODO would it be more efficient to try to capture runs of unescaped
     // characters directly?
     return e.children.map(function (c) { return c.parse(); }).join("");

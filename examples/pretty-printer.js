@@ -1,3 +1,5 @@
+"use strict";
+
 var grammar = require('../src/json-grammar');
 
 // Make a new semantics instead of adding to the semantics that has
@@ -48,10 +50,10 @@ PrettyPrintCtx.prototype.toString = function () {
 };
 
 semantics.addOperation('prettyPrint(ctx)', {
-  Object_empty: function (_, _) {
+  Object_empty: function (_1, _2) {
     this.args.ctx.push('{}');
   },
-  Object_nonEmpty: function (_, x, _, xs, _) {
+  Object_nonEmpty: function (_1, x, _3, xs, _5) {
     this.args.ctx.push('{');
     var newCtx = this.args.ctx.inc();
     newCtx.pushln();
@@ -68,10 +70,10 @@ semantics.addOperation('prettyPrint(ctx)', {
     this.args.ctx.pushln();
     this.args.ctx.pushln('}');
   },
-  Array_empty: function (_, _) {
+  Array_empty: function (_1, _2) {
     this.args.ctx.push('[]');
   },
-  Array_nonEmpty: function (_, x, _, xs, _) {
+  Array_nonEmpty: function (_1, x, _3, xs, _5) {
     this.args.ctx.push('[');
     var newCtx = this.args.ctx.inc();
     newCtx.pushln();
