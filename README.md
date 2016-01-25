@@ -1,5 +1,5 @@
-Ohm-JSON
-========
+ohm-grammar-json
+================
 
 JSON parser written using the [Ohm](https://github.com/cdglabs/ohm) parsing framework.
 
