@@ -6,13 +6,13 @@ JSON parser written using the [Ohm](https://github.com/cdglabs/ohm) parsing fram
 ## Installation
 
 ```bash
-npm install ohm-json
+npm install ohm-grammar-json
 ```
 
 ## Usage
 
 ```javascript
-var json = require('ohm-json');
+var json = require('ohm-grammar-json');
 ```
 
 Analogous to Javascript's built in `JSON.parse`:
@@ -57,7 +57,7 @@ There is an example JSON pretty printer implemented in `examples/pretty-printer.
 Example usage:
 
 ```javascript
-var PrettyPrinter = require('ohm-json/examples/pretty-printer');
+var PrettyPrinter = require('ohm-grammar-json/examples/pretty-printer');
 
 var str = PrettyPrinter.prettyPrint('{"a":"b","c":[1,2,[true,false,null],6.7]}');
 
