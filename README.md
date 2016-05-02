@@ -42,7 +42,7 @@ json.grammar.match('["Unclosed array"').message // Error message
 git submodule init --update
 
 # Install dev dependencies
-npm install --dev
+npm install
 
 # Run tests
 npm test
